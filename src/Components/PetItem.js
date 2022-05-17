@@ -1,4 +1,5 @@
 import petStore from "../stores/petStore";
+import PetUpdateModal from "./PetUpdateModal";
 
 function PetItem({ pet }) {
   return (
@@ -16,6 +17,17 @@ function PetItem({ pet }) {
           >
             Adopt
           </button>
+          {/* <button
+            type="button"
+            class="btn btn-info"
+            onClick={() => {
+              petStore.handleUpdate(pet.id);
+            }}
+          >
+            Update info
+          </button> */}
+
+          <PetUpdateModal pet={pet} />
         </div>
       </div>
     </div>

@@ -2,10 +2,19 @@ import { useState } from "react";
 import PetItem from "./PetItem";
 import petStore from "../stores/petStore";
 import { observer } from "mobx-react";
+import PetCreateModal from "./PetCreateModal";
 
 function PetsList() {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("");
+
+  const allTypes = ["Cat", "Dog", "Rabbit"];
+
+  const allOptions = allTypes.map((element) => (
+    <option key={element} value={element}>
+      {element}
+    </option>
+  ));
 
   const petList = petStore.allPets
     .filter(
@@ -43,10 +52,9 @@ function PetsList() {
                 <option value="" selected>
                   All
                 </option>
-                <option value="Cat">Cat</option>
-                <option value="Dog">Dog</option>
-                <option value="Rabbit">Rabbit</option>
+                {allOptions}
               </select>
+              <PetCreateModal />
             </div>
           </div>
         </div>
