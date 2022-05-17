@@ -18,7 +18,9 @@ class PetStore {
   };
 
   handleUpdate = (updatedPet) => {
-    //this.allPets.find;
+    this.allPets = this.allPets.map((element) =>
+      element.id === updatedPet.id ? updatedPet : element
+    );
   };
 }
 

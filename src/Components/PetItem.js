@@ -1,5 +1,6 @@
 import petStore from "../stores/petStore";
 import PetUpdateModal from "./PetUpdateModal";
+import { observer } from "mobx-react";
 
 function PetItem({ pet }) {
   return (
@@ -17,15 +18,6 @@ function PetItem({ pet }) {
           >
             Adopt
           </button>
-          {/* <button
-            type="button"
-            class="btn btn-info"
-            onClick={() => {
-              petStore.handleUpdate(pet.id);
-            }}
-          >
-            Update info
-          </button> */}
 
           <PetUpdateModal pet={pet} />
         </div>
@@ -34,4 +26,4 @@ function PetItem({ pet }) {
   );
 }
 
-export default PetItem;
+export default observer(PetItem);

@@ -10,6 +10,7 @@ function PetUpdateModal({ pet }) {
   const handleShow = () => setShow(true);
 
   const [enteredPet, setEnteredPet] = useState({
+    id: pet.id,
     name: pet.name,
     type: pet.type,
     image: pet.image,
@@ -21,9 +22,8 @@ function PetUpdateModal({ pet }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    petStore.addPet(enteredPet);
+    petStore.handleUpdate(enteredPet);
     handleClose();
-    setEnteredPet({ name: "", type: "", image: {} });
   };
 
   return (
